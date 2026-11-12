@@ -1,7 +1,5 @@
 # Spec: spa booking and management website
 
-English working copy of the original Hebrew plan. Keep this file as the source of truth for Claude Code.
-
 ## General
 - **Audience:** women in menopause and women in general; possibly pregnant women later.
 - **Palette:** green, brown, soft pink.
