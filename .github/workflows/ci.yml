@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        if: hashFiles('package.json') != ''
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install
+        if: hashFiles('package.json') != ''
+        run: npm ci
+      - name: Lint
+        if: hashFiles('package.json') != ''
+        run: npm run lint --if-present
+      - name: Test
+        if: hashFiles('package.json') != ''
+        run: npm test --if-present
