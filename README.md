@@ -21,9 +21,11 @@ git clone https://github.com/marva-granot/spa-booking.git
 cd spa-booking
 cp .env.example .env   # then fill in the values
 npm install
-npm run dev
+npm run dev        # http://localhost:3000
+npm test           # unit tests
+npm run lint       # lint and type-check
 ```
-(Commands will work after Phase 1 of the roadmap.)
+Requires Node 22 or newer.
 
 ## Privacy and security
 The app handles sensitive health information. The repository contains only fake sample data.

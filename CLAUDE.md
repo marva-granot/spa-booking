@@ -15,11 +15,12 @@ Tests: Vitest for logic, Playwright for the booking flow (added when the flow ex
 - Palette: green, brown, soft pink. Calm, warm, uncluttered. Target audience: women, many in menopause.
 
 ## Commands
-(Fill these in after issue #1 sets up the project.)
-- `npm run dev` start locally
-- `npm test` run tests
-- `npm run lint` lint and type-check
-- `npm run db:migrate` apply database migrations
+Node 22+. Next.js 16 (read `node_modules/next/dist/docs/` before using unfamiliar APIs, see `AGENTS.md`).
+- `npm run dev` start locally (http://localhost:3000)
+- `npm test` run unit tests once (Vitest); `npm run test:watch` for watch mode
+- `npm run lint` ESLint, then generate Next route types and type-check with `tsc`
+- `npm run build` production build
+- `npm run db:migrate` apply database migrations (added in issue #3)
 
 ## Rules
 - For any task touching 3+ files, propose a plan first and wait for approval.
