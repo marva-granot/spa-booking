@@ -8,6 +8,28 @@ Update this file as decisions are made. Record big choices in `docs/decisions/` 
 - **Auth:** an established library for the therapist login. Clients identify by email or phone to see their own appointments.
 - **Notifications:** a `Notifier` interface with a fake implementation first (logs only), then email, then WhatsApp.
 
+## Design tokens
+Defined once in `src/app/globals.css` (Tailwind v4 `@theme`); use the classes (`bg-cream`, `text-ink`, `bg-sage`...), never raw hex.
+Font: Assistant (Hebrew + Latin) via `next/font`, exposed as `--font-assistant` on `<html>`; Tailwind `font-sans` points at it and `body` inherits it, so components never set a font.
+Base size 18px, line-height 1.7. Light theme only.
+
+| Token | Hex | Use |
+|---|---|---|
+| `cream` | #FBF7F2 | page background |
+| `surface` | #FFFFFF | cards, forms, white text on dark tokens |
+| `ink` | #3B2A20 | main text |
+| `ink-muted` | #6B5444 | secondary text |
+| `sage` | #4A6741 | primary buttons, links |
+| `sage-dark` | #3B5434 | primary hover/active |
+| `sage-light` | #E3EBDF | soft green panels, selected slot |
+| `bark` | #7A5A43 | secondary buttons, heading accent |
+| `blush` | #F5E1DC | soft-pink highlight sections, badges |
+| `rose` | #9E4F57 | pink accent text, errors |
+| `line` | #D9C9B8 | borders and dividers only |
+
+Rules: text on `blush` / `sage-light` is `ink` or `ink-muted`; white text only on `sage`, `sage-dark`, `bark`.
+All approved pairs are checked for WCAG AA (4.5:1) in `src/app/theme.test.ts`; add a pair there before using a new combination.
+
 ## Data model (draft)
 - `treatments`: id, name, description, duration_minutes, price
 - `availability_rules`: weekday, start_time, end_time (weekly working hours)
